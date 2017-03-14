@@ -1,0 +1,29 @@
+* {
+    font-family: Georgia;
+}
+
+tab2 { padding-left: 1em; }
+tab3 { padding-left: 4em; }
+tab4 { padding-left: 2em; }
+
+
+body {
+    padding: 0;
+    margin: 10;
+    background: -webkit-linear-gradient(45deg, #f7f7f7 0%, #EAE0D5 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #f7f7f7 0%, #EAE0D5 100%);
+    color: rgba(123, 88, 9, 0.8);
+}
+
+h3 {
+    color: hsla(239, 45%, 22%, 0.75);
+}
+
+th {
+    padding: 8px;
+}
+
+td {
+    padding: 12px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+
+    <link href="styles.css" rel="stylesheet" type="text/css" >
+    <script src="scripts.js"></script>
+
+</head>
+<body>
+<h3 > Input new user: </h3>
+<p > First name:<tab2> <input name="FN" type="text" id="firstname" class=""></tab2> </p>
+<p > Last name:<tab2> <input type="text" id="lastname"></tab2></p>
+<p > Age: <tab3> <input type="number" id="age"></tab3></p>
+<p > Address:<tab4> <input type="text" id="address"></tab4> </p>
+
+<button onclick="onAddClick()">Add</button>
+<br><br>
+
+<h3>Users:</h3>
+<table>
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>Address</th>
+    </tr>
+    <tr>
+        <td id="userListFN"> </td>
+        <td id="userListLN"> </td>
+        <td id="userListAG"> </td>
+        <td id="userListAD"> </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
