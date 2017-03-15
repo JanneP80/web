@@ -1,15 +1,19 @@
 * {
-    font-family: Georgia;
+    font-family: georgia, serif;
 }
 
-tab2 { padding-left: 1em; }
-tab3 { padding-left: 4em; }
-tab4 { padding-left: 7em; }
+tab4 {
+    padding-left: 3.85em;
+}
 
+#t2 {
+    -moz-tab-size: 16; /* Code for Firefox */
+    tab-size: 16;
+}
 
 body {
     padding: 0;
-    margin: 10;
+    margin: 10px;
     background: -webkit-linear-gradient(45deg, #f7f7f7 0%, #EAE0D5 100%);
     /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(45deg, #f7f7f7 0%, #EAE0D5 100%);
@@ -26,4 +30,8 @@ th {
 
 td {
     padding: 12px;
+}
+
+tr{
+    line-height: 0.7em;
 }

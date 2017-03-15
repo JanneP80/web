@@ -11,31 +11,30 @@
 <body>
 <h3> Input new contact: </h3>
 <table>
-
     <tr>
-        <th> First name:</th>
+        <th><label for="firstname"> First name:</label></th>
         <th><input name="FN" type="text" id="firstname" class="contact"></th>
     </tr>
     <tr>
-        <th> Last name:</th>
+        <th><label for="lastname"> Last name:</label></th>
         <th><input type="text" id="lastname" class="contact"></th>
     </tr>
     <tr>
-        <th> Phone:</th>
+        <th><label for="phone"> Phone:</label></th>
         <th><input type="number" id="phone" class="contact"></th>
     </tr>
     <tr>
-        <th> Address:</th>
+        <th><label for="address"> Address:</label></th>
         <th><input type="text" id="address" class="contact"></th>
     <tr>
-        <th> City:</th>
+    <th><label for="city"> City:</label></th>
         <th><input type="text" id="city" class="contact"></th>
     </tr>
-    </tr>
-    </tr>
+
+
 </table>
 <tab4>
-    <button onclick="onAddClick()">Add Contact</button>
+    <tab4><button onclick="onAddClick()">Add Contact</button></tab4>
 </tab4>
 <br><br>
 
@@ -47,23 +46,13 @@
         <th>Phone</th>
         <th>Address</th>
         <th>City</th>
-
     </tr>
     <tbody id="customers">
 
     </tbody>
-    <button onclick="onremoveClick()">Remove Contact</button>
-
-    <!--
-    <tr>
-        <td id="userListFN"></td>
-        <td id="userListLN"></td>
-        <td id="userListAG"></td>
-        <td id="userListAD"></td>
-        <td id="userListCT"></td>
-    </tr>
--->
 </table>
+<label for="lineNumber">Remove line number: </label>
+<input type="number" id="lineNumber" class="contactRemove"> <button onclick="onRemoveClick()">Remove Contact</button>
 
 </body>
 </html>

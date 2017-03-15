@@ -1,6 +1,4 @@
-/**
- * Created by ekoodi on 14.3.2017.
- */
+
 var users = [];
 
 var user = {
@@ -10,8 +8,6 @@ var user = {
     address: '',
     city: ''
 };
-
-/* var count = 0; */
 
 function onAddClick() {
     /* In the beginning: get data from fields into user */
@@ -24,36 +20,6 @@ function onAddClick() {
     console.log(users);
 
     /* Update list*/
-    /* TODO how to do it in array */
-
-    /* var table = document.createElement("table"); */
-
-
-    /* for (var i = count; i < users.length; i++) { */
-    /*
-     var row = table.insertRow(-1);
-     var firstNameCell = row.insertCell(-1);
-     firstNameCell.appendChild(document.createTextNode(users[count].firstName));
-     var lastNameCell = row.insertCell(-1);
-     lastNameCell.appendChild(document.createTextNode(users[count].lastName));
-     var ageCell = row.insertCell(-1);
-     ageCell.appendChild(document.createTextNode(users[count].phone));
-     var addressCell = row.insertCell(-1);
-     addressCell.appendChild(document.createTextNode(users[count].address)); */
-    /*
-     var userListElement = document.getElementById('userListFN');
-     userListElement.innerHTML = '' + users[i].firstName;
-     var userListElement = document.getElementById('userListLN');
-     userListElement.innerHTML = '' + users[i].lastName;
-     var userListElement = document.getElementById('userListAG');
-     userListElement.innerHTML = '' + users[i].phone;
-     var userListElement = document.getElementById('userListAD');
-     userListElement.innerHTML = '' + users[i].address;
-     */
-    /* }*/
-    /* count++;*/
-    /*
-     */
     appendOnPage(users);
 }
 
@@ -87,32 +53,10 @@ function appendOnPage(users) {
     }
     var customersElement = document.getElementById('customers');
     customersElement.innerHTML = oneRow;
+}
 
-    /*
-     var row = table.insertRow(-1);
-     var firstNameCell = row.insertCell(-1);
-     firstNameCell.appendChild(document.createTextNode(users[i].firstName));
-     var lastNameCell = row.insertCell(-1);
-     lastNameCell.appendChild(document.createTextNode(users[i].lastName));
-     var ageCell = row.insertCell(-1);
-     ageCell.appendChild(document.createTextNode(users[i].phone));
-     var addressCell = row.insertCell(-1);
-     addressCell.appendChild(document.createTextNode(users[i].address));
-     var cityCell = row.insertCell(-1);
-     cityCell.appendChild(document.createTextNode(users[i].city));
-     */
-    /*
-     var table = document.createElement("table");
-     var row = table.insertRow(-1);
-     var firstNameCell = row.insertCell(-1);
-     firstNameCell.appendChild(document.createTextNode(users[count].firstName));
-     var lastNameCell = row.insertCell(-1);
-     lastNameCell.appendChild(document.createTextNode(users[count].lastName));
-     var ageCell = row.insertCell(-1);
-     ageCell.appendChild(document.createTextNode(users[count].phone));
-     var addressCell = row.insertCell(-1);
-     addressCell.appendChild(document.createTextNode(users[count].address));
-     */
-
-    /* document.body.appendChild(table);*/
+/*todo next*/
+function onRemoveClick() {
+    var lineNumber = document.getElementById("lineNumber").value;
+users[lineNumber-1].pop()
 }
