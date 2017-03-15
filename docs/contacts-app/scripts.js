@@ -51,14 +51,15 @@ function createUser() {
 }
 
 function appendOnPage(users) {
-      var oneRow = ''; 
+      var oneRow = '';
 
     for (var i = 0; i < users.length; i++) {
+        var urli = "https://www.google.fi/maps/place/"+users[i].address+","+users[i].city;
         oneRow += "<tr>" +
             "<td >" + users[i].firstName+ "</td>" +
             "<td >" + users[i].lastName+ "</td>" +
             "<td >" + users[i].age+ "</td>" +
-            "<td >" + users[i].address+ "</td>" +
+            "<td ><a href="+urli+">" + users[i].address+ "</td>" +
             "<td >" + users[i].city+ "</td>" +
         "</tr>"
     }
