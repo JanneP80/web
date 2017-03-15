@@ -9,7 +9,7 @@ var user = {
     city: ''
 };
 
-var oneRow = '';
+/* var oneRow = ''; */
 /*
 Storage.prototype.setObj = function(key, obj) {
     return this.setItem(key, JSON.stringify(obj))
@@ -97,9 +97,13 @@ function reloadCustomers() {
 
         /* users=localStorage.getItem("rows"); */
     /* oneRow = localStorage.getItem("rows"); */
-
-    users = JSON.parse(localStorage.getItem("customers"));
-    appendOnPage(users);
+    if (Storage.length !== 0) {
+        users = JSON.parse(localStorage.getItem("customers"));
+        appendOnPage(users);
+    } else{
+        users.push(user);
+    }
+    /* appendOnPage(users); */
     /* oneRow = localStorage.getObj("rows"); */
-    return users;
+     return users;
 }
