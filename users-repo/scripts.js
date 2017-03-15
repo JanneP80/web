@@ -51,7 +51,7 @@ function createUser() {
 }
 
 function appendOnPage(users) {
-     /* var oneRow = ''; */
+      var oneRow = ''; 
 
     for (var i = 0; i < users.length; i++) {
         oneRow += "<tr>" +
