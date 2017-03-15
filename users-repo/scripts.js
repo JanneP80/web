@@ -11,7 +11,7 @@ var user = {
     city: ''
 };
 
-var count = 0;
+/* var count = 0; */
 
 function onAddClick() {
     /* In the beginning: get data from fields into user */
@@ -26,7 +26,9 @@ function onAddClick() {
     /* Update list*/
     /* TODO how to do it in array */
 
-    var table = document.createElement("table");
+    /* var table = document.createElement("table"); */
+
+
     /* for (var i = count; i < users.length; i++) { */
     /*
      var row = table.insertRow(-1);
@@ -49,11 +51,13 @@ function onAddClick() {
      userListElement.innerHTML = '' + users[i].address;
      */
     /* }*/
-    count++;
-    appendOnPage(users, count);
+    /* count++;*/
+    /*
+     */
+    appendOnPage(users);
 }
 
-/* Function gets data from the fields and gives it back to userlist */
+/* Function gets data from the fields and gives it back to user list */
 function createUser() {
     var firstName = document.getElementById("firstname").value;
     var lastName = document.getElementById('lastname').value;
@@ -70,7 +74,7 @@ function createUser() {
     };
 }
 
-function appendOnPage(users, count) {
+function appendOnPage(users) {
     var oneRow = '';
     for (var i = 0; i < users.length; i++) {
         oneRow += "<tr>" +
