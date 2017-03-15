@@ -1,0 +1,37 @@
+* {
+    font-family: georgia, serif;
+}
+
+tab4 {
+    padding-left: 3.85em;
+}
+
+#t2 {
+    -moz-tab-size: 16; /* Code for Firefox */
+    tab-size: 16;
+}
+
+body {
+    padding: 0;
+    margin: 10px;
+    background: -webkit-linear-gradient(45deg, #f7f7f7 0%, #EAE0D5 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #f7f7f7 0%, #EAE0D5 100%);
+    color: rgba(123, 88, 9, 0.8);
+}
+
+h3 {
+    color: hsla(239, 45%, 22%, 0.75);
+}
+
+th {
+    padding: 8px;
+}
+
+td {
+    padding: 12px;
+}
+
+tr{
+    line-height: 0.7em;
+}
