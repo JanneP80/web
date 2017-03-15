@@ -9,6 +9,8 @@ var user = {
     city: ''
 };
 
+var oneRow = '';
+
 function onAddClick() {
     /* In the beginning: get data from fields into user */
     /* todo */
@@ -41,7 +43,8 @@ function createUser() {
 }
 
 function appendOnPage(users) {
-    var oneRow = '';
+    /* var oneRow = ''; */
+
     for (var i = 0; i < users.length; i++) {
         oneRow += "<tr>" +
             "<td >" + users[i].firstName+ "</td>" +
@@ -53,10 +56,40 @@ function appendOnPage(users) {
     }
     var customersElement = document.getElementById('customers');
     customersElement.innerHTML = oneRow;
+    localStorage.setObj("rows", oneRow);
+    /* localStorage.setItem("rows", oneRow); */
 }
 
-/*todo next*/
+/*todo next use for clearing localstorage: localStorage.removeItem("rows")*/
 function onRemoveClick() {
     var lineNumber = document.getElementById("lineNumber").value;
-users[lineNumber-1].pop()
+    users.splice(lineNumber-1,1)
+
+}
+
+function storeLocalStorage(){
+    if (typeof(Storage) !== "undefined") {
+        // Store
+        localStorage.setItem("firstname", "Jack");
+        localStorage.setItem("lastname", "Smith");
+        // Retrieve
+        document.getElementById("customers").innerHTML = localStorage.getItem("firstname")+" "+localStorage.getItem("lastname");
+    } else {
+        document.getElementById("customers").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+}
+
+function reloadCustomers() {
+    Storage.prototype.setObj = function(key, obj) {
+        return this.setItem(key, JSON.stringify(obj))
+    };
+
+    Storage.prototype.getObj = function(key) {
+        return JSON.parse(this.getItem(key))
+    };
+
+    document.getElementById("customers").innerHTML = localStorage.getItem("rows");
+    /* users=localStorage.getItem("rows"); */
+    /* oneRow = localStorage.getItem("rows"); */
+    oneRow = localStorage.getObj("rows")
 }
