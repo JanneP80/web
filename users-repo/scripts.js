@@ -97,7 +97,7 @@ function reloadCustomers() {
 
         /* users=localStorage.getItem("rows"); */
     /* oneRow = localStorage.getItem("rows"); */
-    if (Storage.length !== 0) {
+    if ((localStorage.customers) !== "undefined") {
         users = JSON.parse(localStorage.getItem("customers"));
         appendOnPage(users);
     } else{
