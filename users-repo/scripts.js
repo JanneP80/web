@@ -1,13 +1,15 @@
 
-var users = [];
+var contacts = [];
 
-var user = {
+var newUser;
+
+/* var newUser = {
     firstName: '',
     lastName: '',
     phone: '',
     address: '',
     city: ''
-};
+};*/
 
 /* var oneRow = ''; */
 /*
@@ -20,20 +22,20 @@ Storage.prototype.getObj = function(key) {
 };
 */
 function onAddClick() {
-    /* In the beginning: get data from fields into user */
+    /* In the beginning: get data from fields into newUser */
     /* todo */
 
-    user = createUser();
-    console.log(user);
-    /* In the end: save it to array */
-    users.push(user);
-    console.log(users);
-    storeLocalStorage(users);
+    newUser = createUser();
+    console.log(newUser);
+    /* In the end: save it to array and local storage */
+    contacts.push(newUser);
+    console.log(contacts);
+    storeLocalStorage(contacts);
     /* Update list*/
-    appendOnPage(users);
+    appendOnPage(contacts);
 }
 
-/* Function gets data from the fields and gives it back to user list */
+/* Function gets data from the fields and gives it back to newUser and to contacts list */
 function createUser() {
     var firstName = document.getElementById("firstname").value;
     var lastName = document.getElementById('lastname').value;
@@ -44,66 +46,66 @@ function createUser() {
     return {
         firstName: firstName,
         lastName: lastName,
-        age: phone,
+        phone: phone,
         address: address,
         city: city
     };
 }
 
-function appendOnPage(users) {
+function appendOnPage(contacts) {
       var oneRow = '';
 
-    for (var i = 0; i < users.length; i++) {
-        var urli = "https://www.google.fi/maps/place/"+users[i].address+","+users[i].city;
+    for (var i = 0; i < contacts.length; i++) {
+        var urli = "https://www.google.fi/maps/place/"+contacts[i].address+","+contacts[i].city;
         oneRow += "<tr>" +
-            "<td >" + users[i].firstName+ "</td>" +
-            "<td >" + users[i].lastName+ "</td>" +
-            "<td >" + users[i].age+ "</td>" +
-            "<td ><a href="+urli+">" + users[i].address+ "</td>" +
-            "<td >" + users[i].city+ "</td>" +
+            "<td >" + contacts[i].firstName+ "</td>" +
+            "<td >" + contacts[i].lastName+ "</td>" +
+            "<td >" + contacts[i].phone+ "</td>" +
+            "<td ><a href="+urli+">" + contacts[i].address+ "</td>" +
+            "<td >" + contacts[i].city+ "</td>" +
         "</tr>"
     }
-    var customersElement = document.getElementById('customers');
+    var customersElement = document.getElementById('contacts');
     customersElement.innerHTML = oneRow;
     /* localStorage.setObj("rows", oneRow);*/
     /* oneRow = JSON.parse(localStorage.getItem("rows"); */
     /* localStorage.setItem("rows", oneRow); */
 }
 
-/*todo next use for clearing localstorage: localStorage.removeItem("rows")*/
+/*todo next use for clearing localstorage: localStorage.removeItem("customers")*/
 function onRemoveClick() {
     var lineNumber = document.getElementById("lineNumber").value;
-    users.splice(lineNumber-1,1);
-    appendOnPage(users);
+    contacts.splice(lineNumber-1,1);
+    appendOnPage(contacts);
 }
 
-function storeLocalStorage(users){
+function storeLocalStorage(contacts){
     if (typeof(Storage) !== "undefined") {
         // Store
-        localStorage.setItem("customers",JSON.stringify(users));
+        localStorage.setItem("contacts",JSON.stringify(contacts));
         /* localStorage.setItem("lastname", "Smith");*/
         // Retrieve
         // document.getElementById("customers").innerHTML = localStorage.getItem("customers");*/
     } else {
-        document.getElementById("customers").innerHTML = "Sorry, your browser does not support Web Storage...";
+        document.getElementById("contacts").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
 }
 
 function reloadCustomers() {
-   /* localStorage.getItem("customers",JSON.parse(users)); */
+   /* localStorage.getItem("customers",JSON.parse(contacts)); */
     /* document.getElementById("customers").innerHTML = localStorage.getItem("rows"); */
 
     /* document.getElementById("customers").innerHTML = JSON.parse(localStorage.getItem("customers")); */
 
-        /* users=localStorage.getItem("rows"); */
+        /* contacts=localStorage.getItem("rows"); */
     /* oneRow = localStorage.getItem("rows"); */
-    if ((localStorage.customers) !== "undefined") {
-        users = JSON.parse(localStorage.getItem("customers"));
-        appendOnPage(users);
+    if (typeof(Storage) !== "undefined") {
+        contacts = JSON.parse(localStorage.getItem("contacts"));
+        appendOnPage(contacts);
     } else{
-        users.push(user);
+        document.getElementById("contacts").innerHTML = "";
     }
-    /* appendOnPage(users); */
+    /* appendOnPage(contacts); */
     /* oneRow = localStorage.getObj("rows"); */
-     return users;
+     return contacts;
 }

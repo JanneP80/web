@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <title>Contacts</title>
 
     <link href="styles.css" rel="stylesheet" type="text/css">
-    <script src="scripts.js"></script>
+    <script type ="text/javascript" src="scripts.js"></script>
 
 </head>
 <body onload="reloadCustomers()">
@@ -31,7 +31,6 @@
         <th><input type="text" id="city" class="contact"></th>
     </tr>
 
-
 </table>
 <tab4>
     <tab4><button onclick="onAddClick()">Add Contact</button></tab4>
@@ -47,12 +46,12 @@
         <th>Address</th>
         <th>City</th>
     </tr>
-    <tbody id="customers">
+    <tbody id="contacts">
 
     </tbody>
 </table>
 <label for="lineNumber">Remove line number: </label>
-<input type="number" id="lineNumber" class="contactRemove"> <button onclick="onRemoveClick()">Remove Contact</button>
+<input type="number" id="lineNumber" class="contacts"> <button onclick="onRemoveClick()">Remove Contact</button>
 
 </body>
 </html>
