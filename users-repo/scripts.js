@@ -1,6 +1,12 @@
 var contacts = [];
 
-var newUser;
+var newUser = {
+    firstName: '',
+    lastName: '',
+    phone: '',
+    address: '',
+    city: ''
+};
 
 function onAddClick() {
     /* In the beginning: get data from fields into newUser */
@@ -9,7 +15,9 @@ function onAddClick() {
     newUser = createUser();
     console.log(newUser);
     /* In the end: save it to array and local storage */
+
     contacts.push(newUser);
+
     console.log(contacts);
     storeLocalStorage(contacts);
     /* Update list*/
@@ -18,7 +26,7 @@ function onAddClick() {
 
 /* Function gets data from the fields and gives it back to newUser and to contacts list */
 function createUser() {
-    var firstName = document.getElementById("firstname").value;
+    var firstName = document.getElementById('firstname').value;
     var lastName = document.getElementById('lastname').value;
     var phone = document.getElementById('phone').value;
     var address = document.getElementById('address').value;
@@ -35,7 +43,7 @@ function createUser() {
 
 function appendOnPage(contacts) {
     var oneRow = '';
-    if (contacts.length > 0) {
+    if (contacts != null) {
         for (var i = 0; i < contacts.length; i++) {
             var urli = "https://www.google.fi/maps/place/" + contacts[i].address + "," + contacts[i].city;
             oneRow += "<tr>" +
@@ -46,13 +54,16 @@ function appendOnPage(contacts) {
                 "<td >" + contacts[i].city + "</td>" +
                 "</tr>"
         }
+        var customersElement = document.getElementById('contacts');
+        customersElement.innerHTML = oneRow;
+    } else {
+
 
     }
-    var customersElement = document.getElementById('contacts');
-    customersElement.innerHTML = oneRow;
+
 }
 
-/*todo next use for clearing localstorage: localStorage.removeItem("customers")*/
+/*todo next use for clearing localstorage: localStorage.removeItem("contacts")*/
 function onRemoveClick() {
     var lineNumber = document.getElementById("lineNumber").value;
     contacts.splice(lineNumber - 1, 1);
@@ -75,5 +86,5 @@ function reloadCustomers() {
     } else {
         document.getElementById("contacts").innerHTML = "no-go";
     }
-    return contacts;
+    /* return contacts; */
 }
