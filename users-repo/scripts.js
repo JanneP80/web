@@ -15,7 +15,10 @@ function onAddClick() {
     newUser = createUser();
     console.log(newUser);
     /* In the end: save it to array and local storage */
-
+    /* if (contacts[0] != null) {
+        contacts = [];
+    }
+    */
     contacts.push(newUser);
 
     console.log(contacts);
@@ -42,10 +45,13 @@ function createUser() {
 }
 
 function appendOnPage(contacts) {
+
     var oneRow = '';
-    if (contacts != null) {
+    /* if (contacts != null) {
+
+     */
         for (var i = 0; i < contacts.length; i++) {
-            var urli = "https://www.google.fi/maps/place/" + contacts[i].address + "," + contacts[i].city;
+            var urli = "https://www.google.fi/maps/place/" + contacts[i].address + ',' + contacts[i].city;
             oneRow += "<tr>" +
                 "<td >" + contacts[i].firstName + "</td>" +
                 "<td >" + contacts[i].lastName + "</td>" +
@@ -56,11 +62,11 @@ function appendOnPage(contacts) {
         }
         var customersElement = document.getElementById('contacts');
         customersElement.innerHTML = oneRow;
+        /*
     } else {
-
-
-    }
-
+        contacts = [];
+    }*/
+    /* contacts.push(oneRow);*/
 }
 
 /*todo next use for clearing localstorage: localStorage.removeItem("contacts")*/
@@ -79,12 +85,34 @@ function storeLocalStorage(contacts) {
     }
 }
 
-function reloadCustomers() {
-    if (typeof(Storage) !== "undefined") {
+function reloadCustomers() { /* on startup from localstorage*/
+    /* if (typeof(Storage) !== "undefined") {*/
+    try {
+        if (typeof(Storage) !== "undefined") {
+            contacts = JSON.parse(localStorage.getItem("contacts"));
+        } else {
+            document.getElementById("contacts").innerHTML = "no-go";
+        }
+    }
+    catch (err) {
+        document.getElementById("contacts").innerHTML = err.message;
+    }
+
+    if (contacts){
+        appendOnPage(contacts);
+
+        /*
         contacts = JSON.parse(localStorage.getItem("contacts"));
         appendOnPage(contacts);
-    } else {
+        */
+    }
+    else{
+        contacts = [];
+    }
+    /*
+    else {
         document.getElementById("contacts").innerHTML = "no-go";
     }
+    */
     /* return contacts; */
 }
