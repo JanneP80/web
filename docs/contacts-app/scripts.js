@@ -1,7 +1,6 @@
+var contacts = [];
 
-var users = [];
-
-var user = {
+var newUser = {
     firstName: '',
     lastName: '',
     phone: '',
@@ -9,33 +8,28 @@ var user = {
     city: ''
 };
 
-/* var oneRow = ''; */
-/*
-Storage.prototype.setObj = function(key, obj) {
-    return this.setItem(key, JSON.stringify(obj))
-};
-
-Storage.prototype.getObj = function(key) {
-    return JSON.parse(this.getItem(key))
-};
-*/
 function onAddClick() {
-    /* In the beginning: get data from fields into user */
+    /* In the beginning: get data from fields into newUser */
     /* todo */
 
-    user = createUser();
-    console.log(user);
-    /* In the end: save it to array */
-    users.push(user);
-    console.log(users);
-    storeLocalStorage(users);
+    newUser = createUser();
+    console.log(newUser);
+    /* In the end: save it to array and local storage */
+    /* if (contacts[0] != null) {
+        contacts = [];
+    }
+    */
+    contacts.push(newUser);
+
+    console.log(contacts);
+    storeLocalStorage(contacts);
     /* Update list*/
-    appendOnPage(users);
+    appendOnPage(contacts);
 }
 
-/* Function gets data from the fields and gives it back to user list */
+/* Function gets data from the fields and gives it back to newUser and to contacts list */
 function createUser() {
-    var firstName = document.getElementById("firstname").value;
+    var firstName = document.getElementById('firstname').value;
     var lastName = document.getElementById('lastname').value;
     var phone = document.getElementById('phone').value;
     var address = document.getElementById('address').value;
@@ -44,66 +38,81 @@ function createUser() {
     return {
         firstName: firstName,
         lastName: lastName,
-        age: phone,
+        phone: phone,
         address: address,
         city: city
     };
 }
 
-function appendOnPage(users) {
-      var oneRow = '';
+function appendOnPage(contacts) {
 
-    for (var i = 0; i < users.length; i++) {
-        var urli = "https://www.google.fi/maps/place/"+users[i].address+","+users[i].city;
-        oneRow += "<tr>" +
-            "<td >" + users[i].firstName+ "</td>" +
-            "<td >" + users[i].lastName+ "</td>" +
-            "<td >" + users[i].age+ "</td>" +
-            "<td ><a href="+urli+">" + users[i].address+ "</td>" +
-            "<td >" + users[i].city+ "</td>" +
-        "</tr>"
-    }
-    var customersElement = document.getElementById('customers');
-    customersElement.innerHTML = oneRow;
-    /* localStorage.setObj("rows", oneRow);*/
-    /* oneRow = JSON.parse(localStorage.getItem("rows"); */
-    /* localStorage.setItem("rows", oneRow); */
+    var oneRow = '';
+    /* if (contacts != null) {
+
+     */
+        for (var i = 0; i < contacts.length; i++) {
+            var urli = "https://www.google.fi/maps/place/" + contacts[i].address + ',' + contacts[i].city;
+            oneRow += "<tr>" +
+                "<td >" + contacts[i].firstName + "</td>" +
+                "<td >" + contacts[i].lastName + "</td>" +
+                "<td >" + contacts[i].phone + "</td>" +
+                "<td ><a href=" + urli + ">" + contacts[i].address + "</td>" +
+                "<td >" + contacts[i].city + "</td>" +
+                "</tr>"
+        }
+        var customersElement = document.getElementById('contacts');
+        customersElement.innerHTML = oneRow;
+        /*
+    } else {
+        contacts = [];
+    }*/
+    /* contacts.push(oneRow);*/
 }
 
-/*todo next use for clearing localstorage: localStorage.removeItem("rows")*/
+/*todo next use for clearing localstorage: localStorage.removeItem("contacts")*/
 function onRemoveClick() {
     var lineNumber = document.getElementById("lineNumber").value;
-    users.splice(lineNumber-1,1);
-    appendOnPage(users);
+    contacts.splice(lineNumber - 1, 1);
+    appendOnPage(contacts);
 }
 
-function storeLocalStorage(users){
+function storeLocalStorage(contacts) {
     if (typeof(Storage) !== "undefined") {
         // Store
-        localStorage.setItem("customers",JSON.stringify(users));
-        /* localStorage.setItem("lastname", "Smith");*/
-        // Retrieve
-        // document.getElementById("customers").innerHTML = localStorage.getItem("customers");*/
+        localStorage.setItem("contacts", JSON.stringify(contacts));
     } else {
-        document.getElementById("customers").innerHTML = "Sorry, your browser does not support Web Storage...";
+        document.getElementById("contacts").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
 }
 
-function reloadCustomers() {
-   /* localStorage.getItem("customers",JSON.parse(users)); */
-    /* document.getElementById("customers").innerHTML = localStorage.getItem("rows"); */
-
-    /* document.getElementById("customers").innerHTML = JSON.parse(localStorage.getItem("customers")); */
-
-        /* users=localStorage.getItem("rows"); */
-    /* oneRow = localStorage.getItem("rows"); */
-    if (Storage.length !== 0) {
-        users = JSON.parse(localStorage.getItem("customers"));
-        appendOnPage(users);
-    } else{
-        users.push(user);
+function reloadCustomers() { /* on startup from localstorage*/
+    /* if (typeof(Storage) !== "undefined") {*/
+    try {
+        if (typeof(Storage) !== "undefined") {
+            contacts = JSON.parse(localStorage.getItem("contacts"));
+        } else {
+            document.getElementById("contacts").innerHTML = "no-go";
+        }
     }
-    /* appendOnPage(users); */
-    /* oneRow = localStorage.getObj("rows"); */
-     return users;
+    catch (err) {
+        document.getElementById("contacts").innerHTML = err.message;
+    }
+
+    if (contacts){
+        appendOnPage(contacts);
+
+        /*
+        contacts = JSON.parse(localStorage.getItem("contacts"));
+        appendOnPage(contacts);
+        */
+    }
+    else{
+        contacts = [];
+    }
+    /*
+    else {
+        document.getElementById("contacts").innerHTML = "no-go";
+    }
+    */
+    /* return contacts; */
 }
