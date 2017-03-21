@@ -1,0 +1,6 @@
+D:\ekoodi17k\dev\web\users-repo\server-project\WebApi\WebApi\bin\Debug\netcoreapp1.1\WebApi.deps.json
+D:\ekoodi17k\dev\web\users-repo\server-project\WebApi\WebApi\bin\Debug\netcoreapp1.1\WebApi.runtimeconfig.json
+D:\ekoodi17k\dev\web\users-repo\server-project\WebApi\WebApi\bin\Debug\netcoreapp1.1\WebApi.runtimeconfig.dev.json
+D:\ekoodi17k\dev\web\users-repo\server-project\WebApi\WebApi\bin\Debug\netcoreapp1.1\WebApi.dll
+D:\ekoodi17k\dev\web\users-repo\server-project\WebApi\WebApi\obj\Debug\netcoreapp1.1\WebApi.csprojResolveAssemblyReference.cache
+D:\ekoodi17k\dev\web\users-repo\server-project\WebApi\WebApi\obj\Debug\netcoreapp1.1\WebApi.AssemblyInfo.cs
