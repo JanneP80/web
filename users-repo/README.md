@@ -2,6 +2,6 @@
  - master branch: 
    task1
    
-   -contacts2 branch: 
+ - contacts2 branch: 
     task2
     
