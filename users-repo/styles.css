@@ -3,7 +3,7 @@
 }
 
 tab4 {
-    padding-left: 3.85em;
+    padding-left: 1.85em;
 }
 
 #t2 {
@@ -20,18 +20,23 @@ body {
     color: rgba(123, 88, 9, 0.8);
 }
 
+
+
 h3 {
+    margin-left: 11px;
     color: hsla(239, 45%, 22%, 0.75);
 }
 
 th {
-    padding: 8px;
+    padding: 2px;
 }
 
 td {
-    padding: 12px;
+    padding: 2px;
+    line-height: 0.8em;
 }
 
 tr{
-    line-height: 0.7em;
+    line-height: 0.8em;
+
 }
