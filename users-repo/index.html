@@ -29,61 +29,62 @@
 </button>
 -->
 <h3> Input new contact: </h3>
+<form action="#" id="contactForm">
 <table  class="mdl-data-table mdl-js-data-table">
     <tr>
          <th><!-- Simple Textfield -->
-             <form action="#">
+
                  <div class="mdl-textfield mdl-js-textfield">
                      <input class="mdl-textfield__input" type="text" id="firstname">
-                     <label class="mdl-textfield__label" for="firstname">First name:</label>
+                     <label class="mdl-textfield__label" for="firstname">First name</label>
                  </div>
-                  </form>
+
                   <!--<label for="firstname"> First name:</label></th>
              <th><input name="FN" type="text" id="firstname" class="contact">-->  </th>
     </tr>
     <tr>
         <th><!-- Simple Textfield -->
-             <form action="#">
+
                 <div class="mdl-textfield mdl-js-textfield">
                     <input class="mdl-textfield__input" type="text" id="lastname">
-                    <label class="mdl-textfield__label" for="lastname">Last name:</label>
+                    <label class="mdl-textfield__label" for="lastname">Last name</label>
                 </div>
-            </form>
+
             <!--    <label for="lastname"> Last name:</label></th>
                     <th><input type="text" id="lastname" class="contact">--></th>
     </tr>
     <tr>
         <th><!-- Numeric Textfield -->
-            <form action="#">
+
                 <div class="mdl-textfield mdl-js-textfield">
                     <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="phone">
-                    <label class="mdl-textfield__label" for="phone">Phone:</label>
+                    <label class="mdl-textfield__label" for="phone">Phone</label>
                     <span class="mdl-textfield__error">Input is not a number!</span>
                 </div>
-            </form>
+
 
             <!-- <label for="phone"> Phone:</label></th>
         <th><input type="number" id="phone" class="contact">--></th>
     </tr>
     <tr>
         <th><!-- Simple Textfield -->
-            <form action="#">
+
                 <div class="mdl-textfield mdl-js-textfield">
                     <input class="mdl-textfield__input" type="text" id="address">
-                    <label class="mdl-textfield__label" for="address">Address:</label>
+                    <label class="mdl-textfield__label" for="address">Address</label>
                 </div>
-            </form>
+
 
             <!-- <label for="address"> Address:</label></th>
         <th><input type="text" id="address" class="contact">--></th>
     <tr>
         <th><!-- Simple Textfield -->
-            <form action="#">
+
                 <div class="mdl-textfield mdl-js-textfield">
                     <input class="mdl-textfield__input" type="text" id="city">
-                    <label class="mdl-textfield__label" for="city">City:</label>
+                    <label class="mdl-textfield__label" for="city">City</label>
                 </div>
-            </form>
+
 
             <!-- <label for="city"> City:</label></th>
         <th><input type="text" id="city" class="contact">--></th>
@@ -96,7 +97,7 @@
     </tab4>
     </tr>
 </table>
-
+</form>
 <br><br>
 
 <h3>Customers:</h3>
@@ -113,7 +114,7 @@
 
     </tbody>
 </table>
-<form action="#">
+<form action="#" id="delete">
     <div class="mdl-textfield mdl-js-textfield">
         <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="lineNumber">
         <label class="mdl-textfield__label" for="lineNumber">Contact Line Number To Be Removed</label>

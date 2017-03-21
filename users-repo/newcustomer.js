@@ -18,6 +18,7 @@ function onAddClick() {
     storeLocalStorage(contacts);
     /* Update list*/
     appendOnPage(contacts);
+    document.forms['contactForm'].reset();
 }
 
 /* Function gets data from the fields and gives it back to newUser and to contacts list */
