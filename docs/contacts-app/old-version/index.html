@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <!-- <script type ="text/javascript" src="scripts.js"></script>  -->
+    <script src="scripts.js"></script>
+
+</head>
+<body onload="reloadCustomers()">
+<h3> Input new contact: </h3>
+<table>
+    <tr>
+         <th><label for="firstname"> First name:</label></th>
+        <th><input name="FN" type="text" id="firstname" class="contact"></th>
+    </tr>
+    <tr>
+        <th><label for="lastname"> Last name:</label></th>
+        <th><input type="text" id="lastname" class="contact"></th>
+    </tr>
+    <tr>
+        <th><label for="phone"> Phone:</label></th>
+        <th><input type="number" id="phone" class="contact"></th>
+    </tr>
+    <tr>
+        <th><label for="address"> Address:</label></th>
+        <th><input type="text" id="address" class="contact"></th>
+    <tr>
+        <th><label for="city"> City:</label></th>
+        <th><input type="text" id="city" class="contact"></th>
+    </tr>
+    <tr>
+    <tab4>
+        <th><button onclick="onAddClick()" class="contact">Add Contact</button></th>
+    </tab4>
+    </tr>
+</table>
+
+<br><br>
+
+<h3>Customers:</h3>
+<table>
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>City</th>
+    </tr>
+    <tbody id="contacts">
+
+    </tbody>
+</table>
+<label for="lineNumber">Remove line number: </label>
+<input type="number" id="lineNumber" class="removeContacts"> <button onclick="onRemoveClick()">Remove Contact</button>
+
+</body>
+</html>
