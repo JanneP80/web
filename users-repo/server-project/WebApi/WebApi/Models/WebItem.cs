@@ -13,7 +13,11 @@ namespace WebApi.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Key { get; set; }
-        public string Name { get; set; }
-        public bool IsComplete { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string phone { get; set; }
+        public string address { get; set; }
+        public string city { get; set; }
+        // public bool IsComplete { get; set; }
     }
 }

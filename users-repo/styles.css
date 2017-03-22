@@ -90,3 +90,7 @@ tr{
     overflow: visible;
     top: 0px;*/
 }
+
+.mdl-data-table th {
+    font-size: 16px;
+}

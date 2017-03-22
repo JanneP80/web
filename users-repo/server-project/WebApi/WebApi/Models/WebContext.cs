@@ -13,6 +13,6 @@ namespace WebApi.Models
         {
         }
 
-        public DbSet<WebItem> TodoItems { get; set; }
+        public DbSet<WebItem> WebItems { get; set; }
     }
 }
