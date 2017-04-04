@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Models;
 
@@ -9,7 +10,9 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [Route("api/[controller]")]
+
     public class WebController : Controller
     {
         private readonly IWebRepository _webRepository;
@@ -91,8 +94,8 @@ namespace WebApi.Controllers
             [HttpDelete("{id}")]
             public IActionResult Delete(long id)
             {
-            var todo = _webRepository.Find(id);
-            if (todo == null)
+            var web = _webRepository.Find(id);
+            if (web == null)
             {
                 return NotFound();
             }

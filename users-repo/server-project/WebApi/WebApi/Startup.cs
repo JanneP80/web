@@ -29,12 +29,23 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddDbContext<WebContext>(opt => opt.UseInMemoryDatabase());
             // Add framework services.
             services.AddMvc();
 
+            // Add service and create Policy with options
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+            
+            services.AddDbContext<WebContext>(opt => opt.UseInMemoryDatabase());
+            
             services.AddSingleton<IWebRepository, WebRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +54,17 @@ namespace WebApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            // global policy - assign here or on each controller
+            app.UseCors("CorsPolicy");
             app.UseMvc();
+            /*
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+            */
         }
     }
 }

@@ -17,7 +17,7 @@ function onAddClick() {
     console.log(contacts);
     storeLocalStorage(contacts);
 
-    jQuery.post('http://localhost:49990/api/web',contacts);
+    jQuery.post("http://localhost:49989/api/web",contacts);
 
     /*
     var postData = $("http://localhost:49989/api/web").serializeArray();
